@@ -22,6 +22,7 @@ Before you begin, ensure you have:
 node --version
 # Should output v20.18.0 or higher
 ```
+
 ### Verify Your Setup
 
 Run the doctor check before scaffolding, or any time you need to confirm that your local machine still matches the CLI requirements:
@@ -50,6 +51,54 @@ The fastest way to create a Nextellar project is with `npx` (no global installat
 ```bash
 npx nextellar my-stellar-app
 ```
+
+## Package Manager Matrix
+
+Nextellar supports all major package managers. The CLI auto-detects your package manager, or you can explicitly choose one:
+
+| Package Manager | Create Command                                | Install Dependencies | Run Dev Server | Run Build       | Run Doctor              |
+| --------------- | --------------------------------------------- | -------------------- | -------------- | --------------- | ----------------------- |
+| **npm**         | `npx nextellar my-app`                        | `npm install`        | `npm run dev`  | `npm run build` | `npx nextellar doctor`  |
+| **yarn**        | `npx nextellar my-app --package-manager yarn` | `yarn install`       | `yarn dev`     | `yarn build`    | `yarn nextellar doctor` |
+| **pnpm**        | `npx nextellar my-app --package-manager pnpm` | `pnpm install`       | `pnpm dev`     | `pnpm build`    | `pnpm nextellar doctor` |
+| **bun**         | `npx nextellar my-app --package-manager bun`  | `bun install`        | `bun dev`      | `bun run build` | `bunx nextellar doctor` |
+
+### Explicit Package Manager Selection
+
+```bash
+# npm (default if package-lock.json exists)
+npx nextellar my-app --package-manager npm
+
+# yarn (default if yarn.lock exists)
+npx nextellar my-app --package-manager yarn
+
+# pnpm (default if pnpm-lock.yaml exists)
+npx nextellar my-app --package-manager pnpm
+
+# bun (default if bun.lockb exists)
+npx nextellar my-app --package-manager bun
+```
+
+The `--package-manager` flag accepts: `npm`, `yarn`, `pnpm`, `bun`
+
+### Lockfile Detection
+
+Nextellar automatically detects your package manager by checking for lockfiles in the current directory:
+
+- `package-lock.json` → npm
+- `yarn.lock` → yarn
+- `pnpm-lock.yaml` → pnpm
+- `bun.lockb` → bun
+
+If no lockfile is found, it defaults to `npm`.
+
+### Verified Commands
+
+All commands in the matrix above have been verified with:
+
+- Nextellar CLI 1.0.4+
+- Node.js 20.18.0+
+- Each package manager's latest stable version
 
 This command will:
 
@@ -186,7 +235,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. You should 
 
 ## Verify Installation
 
-After scaffolding, run 
+After scaffolding, run
 px nextellar doctor again if your environment changed, then test that the generated app works:
 
 1. **Development server starts**: `npm run dev` should run without errors
