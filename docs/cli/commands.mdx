@@ -178,11 +178,11 @@ nextellar doctor [options]
 
 **Options:**
 
-| Option                   | Description                                                          |
-| ------------------------ | -------------------------------------------------------------------- |
-| `--json`                 | Output results as JSON for CI integration                            |
-| `--horizon-url <url>`    | Override the Horizon endpoint used for the connectivity check        |
-| `--soroban-url <url>`    | Override the Soroban RPC endpoint used for the connectivity check    |
+| Option                | Description                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| `--json`              | Output results as JSON for CI integration                         |
+| `--horizon-url <url>` | Override the Horizon endpoint used for the connectivity check     |
+| `--soroban-url <url>` | Override the Soroban RPC endpoint used for the connectivity check |
 
 By default `doctor` resolves endpoints from your project config, falling back to the testnet URLs (`https://horizon-testnet.stellar.org` and `https://soroban-testnet.stellar.org`). Pass `--horizon-url` or `--soroban-url` to check a custom or mainnet endpoint instead:
 
@@ -276,27 +276,27 @@ The `checks` array is truncated above for brevity — it contains one entry per 
 
 **Top-level fields:**
 
-| Field              | Type   | Description                                                          |
-| ------------------ | ------ | ------------------------------------------------------------------- |
-| `schemaVersion`    | number | Output schema version (currently `2`). Bumped on breaking changes.  |
-| `horizonUrl`       | string | Horizon endpoint that was checked                                   |
-| `sorobanUrl`       | string | Soroban RPC endpoint that was checked                               |
-| `checks`           | array  | One result object per diagnostic (see below)                        |
-| `passed`           | number | Number of checks that passed                                        |
-| `failed`           | number | Number of checks that failed (required **and** optional)            |
-| `requiredFailures` | number | Number of **required** checks that failed — drives the exit code    |
+| Field              | Type   | Description                                                        |
+| ------------------ | ------ | ------------------------------------------------------------------ |
+| `schemaVersion`    | number | Output schema version (currently `2`). Bumped on breaking changes. |
+| `horizonUrl`       | string | Horizon endpoint that was checked                                  |
+| `sorobanUrl`       | string | Soroban RPC endpoint that was checked                              |
+| `checks`           | array  | One result object per diagnostic (see below)                       |
+| `passed`           | number | Number of checks that passed                                       |
+| `failed`           | number | Number of checks that failed (required **and** optional)           |
+| `requiredFailures` | number | Number of **required** checks that failed — drives the exit code   |
 
 **`checks[]` fields:**
 
-| Field      | Type    | Description                                                            |
-| ---------- | ------- | --------------------------------------------------------------------- |
-| `id`       | string  | Stable machine-readable identifier (e.g. `node`, `horizon`)           |
-| `name`     | string  | Human-readable check name                                             |
-| `required` | boolean | Whether a failure counts toward `requiredFailures` / the exit code    |
-| `ok`       | boolean | Whether the check passed                                              |
-| `detail`   | string  | Human-readable detail (version found, endpoint status, etc.)          |
-| `fix`      | string  | Optional remediation hint, present on some failed checks              |
-| `link`     | string  | Optional documentation link, present on some failed checks            |
+| Field      | Type    | Description                                                        |
+| ---------- | ------- | ------------------------------------------------------------------ |
+| `id`       | string  | Stable machine-readable identifier (e.g. `node`, `horizon`)        |
+| `name`     | string  | Human-readable check name                                          |
+| `required` | boolean | Whether a failure counts toward `requiredFailures` / the exit code |
+| `ok`       | boolean | Whether the check passed                                           |
+| `detail`   | string  | Human-readable detail (version found, endpoint status, etc.)       |
+| `fix`      | string  | Optional remediation hint, present on some failed checks           |
+| `link`     | string  | Optional documentation link, present on some failed checks         |
 
 **Exit codes:**
 
@@ -368,11 +368,11 @@ Run this command from the root of an existing Nextellar project. Use a dry run f
 
 **Options:**
 
-| Option      | Description                                                                 |
-| ----------- | --------------------------------------------------------------------------- |
-| `--dry-run` | Show which template files would change without applying the upgrade         |
+| Option      | Description                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `--dry-run` | Show which template files would change without applying the upgrade                             |
 | `--check`   | Show a changelog-style diff preview with upgrade notes; exits non-zero if updates are available |
-| `--yes`     | Apply changes without prompting for confirmation                            |
+| `--yes`     | Apply changes without prompting for confirmation                                                |
 
 **`--check` vs `--dry-run`:**
 
@@ -405,10 +405,10 @@ nextellar deploy [options]
 
 **Options:**
 
-| Option                        | Description                                                                |
-| ----------------------------- | -------------------------------------------------------------------------- |
-| `--dry-run`                   | Validate configuration and build process without producing a deploy bundle |
-| `--size-threshold <bytes>`    | Fail the deploy if the production bundle exceeds this size in bytes (default: `52428800` — 50 MB) |
+| Option                     | Description                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------- |
+| `--dry-run`                | Validate configuration and build process without producing a deploy bundle                        |
+| `--size-threshold <bytes>` | Fail the deploy if the production bundle exceeds this size in bytes (default: `52428800` — 50 MB) |
 
 **Examples:**
 

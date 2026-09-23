@@ -9,7 +9,8 @@ date: 2026-06-02
 The `useTrustlines` hook manages asset trustlines, allowing accounts to hold custom Stellar assets. It provides methods to query existing trustlines, build change-trust transactions, and submit them to the network.
 
 <Note>
-  **Ships in:** default, defi, js-template, js-defi (not minimal)<br/>
+  **Ships in:** default, defi, js-template, js-defi (not minimal)
+  <br />
   Not in your scaffold? Run `nextellar add trustlines`
 </Note>
 
@@ -90,11 +91,11 @@ useTrustlines(
 ): TrustlinesState
 ```
 
-| Parameter    | Type                    | Default                                          | Description                                         |
-| ------------ | ----------------------- | ------------------------------------------------ | --------------------------------------------------- |
-| `publicKey`  | `string \| null`        | `undefined`                                      | Account to load trustlines for                      |
-| `horizonUrl` | `string`                | WalletProvider config or `https://horizon-testnet.stellar.org` | Horizon server URL                    |
-| `network`    | `'TESTNET' \| 'PUBLIC'` | `'TESTNET'`                                      | Network passphrase used when building transactions  |
+| Parameter    | Type                    | Default                                                        | Description                                        |
+| ------------ | ----------------------- | -------------------------------------------------------------- | -------------------------------------------------- |
+| `publicKey`  | `string \| null`        | `undefined`                                                    | Account to load trustlines for                     |
+| `horizonUrl` | `string`                | WalletProvider config or `https://horizon-testnet.stellar.org` | Horizon server URL                                 |
+| `network`    | `'TESTNET' \| 'PUBLIC'` | `'TESTNET'`                                                    | Network passphrase used when building transactions |
 
 `horizonUrl` falls back to `WalletProvider`. `network` does **not** — it defaults to `'TESTNET'` unless you pass it in `options`.
 
@@ -324,8 +325,9 @@ What to expect:
 3. **Failures** — Horizon result codes such as `op_low_reserve` (not enough XLM to add) or `op_invalid_limit` (balance still above 0 when removing) are shown in the status message; the buttons re-enable so the user can retry.
 
 <Note>
-  Using a different wallet? Replace step 2 with that wallet's signing call. Steps 1 and 3 stay the
-  same because `buildChangeTrustXDR` and `submitSignedXDR` only deal in XDR strings.
+  Using a different wallet? Replace step 2 with that wallet's signing call.
+  Steps 1 and 3 stay the same because `buildChangeTrustXDR` and
+  `submitSignedXDR` only deal in XDR strings.
 </Note>
 
 ## Error Handling
