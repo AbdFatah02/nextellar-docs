@@ -164,12 +164,12 @@ Error: Unexpected token in docs/guides/example.mdx:15:3
 
 **Solution**: Check MDX syntax, especially JSX components:
 
-```mdx
-{/* Correct */}
+```markdown
+{/_ Correct _/}
 
 <div className="grid grid-cols-2">Content here</div>
 
-{/* Incorrect - missing closing tag */}
+{/_ Incorrect - missing closing tag _/}
 
 <div className="grid grid-cols-2">
   Content here
@@ -282,7 +282,7 @@ For a quick ready-to-use checklist, see [Documentation Contributing Checklist](/
 
 ### File Organization
 
-```
+```text
 docs/
 ├── index.mdx              # Homepage
 ├── getting-started/       # Installation, quick start
@@ -320,8 +320,8 @@ description: 'Clear description for SEO and navigation (50-160 chars)'
 
 ### Component Usage
 
-```mdx
-{/* Use project components for consistency */}
+```markdown
+{/_ Use project components for consistency _/}
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
   <a href="/docs/cli/commands" className="block p-4 border rounded-lg">
