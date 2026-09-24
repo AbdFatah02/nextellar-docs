@@ -17,6 +17,7 @@ Complete reference for all Nextellar CLI commands and their usage.
 | `nextellar doctor`    | Run environment diagnostics and system checks              |
 | `nextellar upgrade`   | Upgrade a project to the latest template files             |
 | `nextellar deploy`    | Validate and prepare project for production deployment     |
+| `nextellar clean`     | Remove generated files from `.nextellar/build`             |
 | `nextellar telemetry` | Manage CLI telemetry preferences (status, enable, disable) |
 
 ## Main Command
@@ -425,6 +426,16 @@ nextellar deploy --size-threshold 20971520
 # Raise the threshold to 100 MB for large projects
 nextellar deploy --size-threshold 104857600
 ```
+
+### nextellar clean
+
+Remove generated Nextellar build artifacts from the current project.
+
+```bash
+nextellar clean
+```
+
+The command deletes only `.nextellar/build`. It succeeds when the directory is already absent. See [Clean Nextellar build artifacts](/docs/cli/clean) for the preserved files and error behavior.
 
 ### nextellar telemetry
 
