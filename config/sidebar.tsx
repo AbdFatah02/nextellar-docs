@@ -166,11 +166,10 @@ export const sidebarNav: SidebarSection[] = [
         title: 'Creating and Managing DEX Offers',
         href: '/docs/guides/offer-creation-management',
       },
+      { title: 'Documentation Roadmap', href: '/docs/guides/roadmap' },
       {
-        title: 'Documentation Roadmap',
-        href: '/docs/guides/roadmap',
-        title: 'Security Policy',
-        href: '/docs/guides/security-policy',
+        title: 'Security Hardening',
+        href: '/docs/guides/security-hardening',
       },
       { title: 'Security Policy', href: '/docs/guides/security-policy' },
       { title: 'Glossary', href: '/docs/guides/glossary' },
@@ -331,8 +330,6 @@ export const sidebarNav: SidebarSection[] = [
         href: '/docs/guides/horizon-vs-soroban-rpc',
       },
       {
-        title: 'Security Policy',
-        href: '/docs/guides/security-policy',
         title: 'Internationalization',
         href: '/docs/guides/internationalization',
       },

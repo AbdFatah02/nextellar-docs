@@ -33,7 +33,7 @@ function initPlausible() {
   // Dynamically load Plausible script
   const script = document.createElement('script');
   script.defer = true;
-  script.data_domain = domain;
+  script.setAttribute('data-domain', domain);
   script.src = 'https://plausible.io/js/script.js';
   script.onload = () => {
     console.log('[Analytics] Plausible initialized');
@@ -78,7 +78,7 @@ function initSentry() {
         ],
         replaysSessionSampleRate: 0.1,
         replaysOnErrorSampleRate: 1.0,
-        beforeSend(event) {
+        beforeSend(event: any) {
           // Filter out certain errors if needed
           return event;
         },
@@ -100,6 +100,7 @@ declare global {
     Sentry?: {
       init: (options: Record<string, unknown>) => void;
       Replay: new (options: Record<string, unknown>) => unknown;
+      captureException: (error: any, context?: any) => void;
     };
   }
 }

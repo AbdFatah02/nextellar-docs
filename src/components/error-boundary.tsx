@@ -52,7 +52,8 @@ export class ErrorBoundary extends React.Component<
               Something went wrong
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
-              We've been notified and are working on a fix. Please try refreshing the page.
+              We've been notified and are working on a fix. Please try
+              refreshing the page.
             </p>
             <button
               onClick={() => window.location.reload()}
@@ -66,19 +67,5 @@ export class ErrorBoundary extends React.Component<
     }
 
     return this.props.children;
-  }
-}
-
-// Type augmentation for Sentry in window
-declare global {
-  interface Window {
-    Sentry?: {
-      captureException: (
-        error: Error,
-        context?: Record<string, unknown>
-      ) => void;
-      Replay?: new (options: Record<string, unknown>) => unknown;
-      init?: (options: Record<string, unknown>) => void;
-    };
   }
 }
